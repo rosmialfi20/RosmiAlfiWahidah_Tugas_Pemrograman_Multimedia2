@@ -7,7 +7,7 @@
     <title>Kalkulator Untuk Menghitung Gaji Bersih</title>
 </head>
 
-<body>
+<body bgcolor="9A4444">
     <h1>Kalkulator Untuk Menghitung Gaji Bersih Karyawan</h1>
     <table border ="1">
         <tr>
@@ -41,11 +41,14 @@
 
             // tunjangan adalah 20% dari gaji pokok dan pajak adalah 15% dari gaji pokok
             const tunjangan = 0.2 * gajiPokok;
-            const pajak = 0.15 * gajiPokok;
+            const pajak = 0.15 * (gajiPokok + tunjangan);
 
-            const gajiBersih = gajiPokok - (tunjangan + pajak);
+            const gajiBersih = gajiPokok + tunjangan - pajak;
 
-            const hasilText = `${namaKaryawan}<br>Rp ${gajiBersih}`;
+            const hasilText = `${namaKaryawan}<br>Rp ${gajiBersih}
+            <p>Tunjangan${tunjangan}</p>
+            <p>Pajak${pajak}</p>`;
+            
             document.getElementById("hasil").innerHTML = hasilText;
         }
     </script>
